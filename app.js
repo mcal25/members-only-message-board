@@ -6,6 +6,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import indexRouter from "./routes/indexRouter.js";
 import usersRouter from "./routes/usersRouter.js";
+import messagesRouter from "./routes/messagesRouter.js";
 
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/', indexRouter);
 app.use('/user', usersRouter);
+app.use('/messages', messagesRouter)
 
 
 app.set("views", path.join(__dirname, "views"));

@@ -7,5 +7,13 @@
 </head>
 <body>
     <h1>Messages</h1>
+    <br>
+    <% allMessages.forEach((message) => { %>
+        <div style="border: 3px solid black; border-radius: 15px; padding: 1px 8px;">
+            <h4><%= message.title %></h4>
+            <p><%= message.text %></p>
+        </div>
+        <br>
+    <% }); %>
 </body>
 </html>
