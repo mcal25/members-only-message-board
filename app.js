@@ -1,7 +1,11 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import indexRouter from "./routes/indexRouter.js";
+import usersRouter from "./routes/usersRouter.js";
 
 
 const app = express();
@@ -9,7 +13,9 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 app.use(express.urlencoded({ extended: true }));
+
 app.use('/', indexRouter);
+app.use('/user', usersRouter);
 
 
 app.set("views", path.join(__dirname, "views"));
