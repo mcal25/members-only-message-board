@@ -29,5 +29,9 @@
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
     "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.9.6",
+    "prettier-plugin-ejs": "^1.0.3"
   }
 }

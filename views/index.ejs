@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Homepage</title>
 </head>
+
 <body>
-    <!-- <form action="/sign-up" method="GET">
-        <button type="submit">Sign Up</button>
-    </form> -->
-     <a href="/user/sign-up"><button>Sign-up</button></a>
-     <a href="/user/login"><button>Login</button></a>
-     <a href="/messages"><button>View Messages</button></a>
-    <h1>Members Anonymous Board</h1>
-    <h3>Sign up to leave messages. Become a member to see who sent them.</h3>
+    <% if (locals.user) { %>
+        <h1>WELCOME BACK <%= user.firstname %> <%= user.lastname %>!</h1>
+        <a href="/user/log-out">LOG OUT</a>
+    <% } else { %>
+        <a href="/user/sign-up"><button>Sign-up</button></a>
+        <a href="/user/login"><button>Login</button></a>
+        <a href="/messages"><button>View Messages</button></a>
+        <h1>Members Anonymous Board</h1>
+        <h3>Sign up to leave messages. Become a member to see who sent them.</h3>
+    <% } %>
+
+
 </body>
+
 </html>
