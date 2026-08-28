@@ -10,4 +10,12 @@ messagesRouter.get("/", async (req, res) => {
   res.render("messages", { allMessages: allMessages });
 });
 
+messagesRouter.get("/new-message", (req, res) => {
+    res.render("new-message");
+});
+
+messagesRouter.get("/one-of-us", (req, res) => {
+    res.render("one-of-us");
+})
+
 export default messagesRouter;

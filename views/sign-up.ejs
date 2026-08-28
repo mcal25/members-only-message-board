@@ -6,6 +6,17 @@
     <title>Signup</title>
 </head>
 <body>
-    <h1>Signup</h1>
+    <h1>Sign Up</h1>
+    <form action="/user/sign-up" method="POST">
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" name="firstname" placeholder="Himmothy" />
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" placeholder="Neutron" />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="something@somemail.com" />
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" />
+        <button type="submit">Sign Up</button>
+    </form>
 </body>
 </html>
