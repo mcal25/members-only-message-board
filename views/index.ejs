@@ -11,6 +11,9 @@
     <% if (locals.user) { %>
         <h1>WELCOME BACK <%= user.firstname %> <%= user.lastname %>!</h1>
         <h4>Member?: <%= locals.user.membership_status%></h4>
+        <h4>Admin?: <%= locals.user.admin_status%></h4>
+        <a href="/messages">Messages</a>
+        <br>
         <a href="/user/log-out">LOG OUT</a>
     <% } else { %>
         <a href="/user/sign-up"><button>Sign-up</button></a>

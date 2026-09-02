@@ -13,7 +13,22 @@
         <a href="/messages/one-of-us"><button>Become ONE OF US 🪼</button></a>
     </div>
     <br>
-    <% if (user && user.membership_status) { %>
+    <% if (user && user.admin_status) { %>
+        <h2>Admin View</h2>
+        <% allMessages.forEach((message) => { %>
+            <div style="border: 3px solid black; border-radius: 15px; padding: 1px 8px;">
+                <h4><%= message.title %></h4>
+                <h5>Sent at: <%= message.timestamp %></h5>
+                <p><%= message.text %></p>
+                <form action="/messages/delete-message" method="POST"> 
+                    <input type="hidden" name="messageid" value="<%= message.id %>">
+                    <button type="submit" onclick="return confirm('Sure you wanna do that?')">Delete</button>
+                </form>
+            </div>
+            <br>
+        <% }); %>
+    <% } else if (user && user.membership_status) { %>
+        <h2>Member View</h2>
         <% allMessages.forEach((message) => { %>
             <div style="border: 3px solid black; border-radius: 15px; padding: 1px 8px;">
                 <h4><%= message.title %></h4>
