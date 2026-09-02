@@ -17,6 +17,17 @@ messagesRouter.get("/new-message", (req, res) => {
   res.render("new-message");
 });
 
+messagesRouter.post("/new-message", async (req, res) => {
+    await pool.query(
+    `
+        INSERT INTO messages (title, text, user_id)
+        VALUES ($1, $2, $3);
+    `,
+    [req.body.messagetitle, req.body.messagetext, req.user.id],
+    )
+    res.redirect('/messages');
+})
+
 messagesRouter.get("/one-of-us", (req, res) => {
   res.render("one-of-us");
 });

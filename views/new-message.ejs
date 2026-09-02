@@ -7,6 +7,12 @@
 </head>
 <body>
     <h1>New Message</h1>
-    
+    <form action="/messages/new-message" method="POST">
+        <label for="messagetitle">Title:</label>
+        <input type="text" name="messagetitle" placeholder="Glorious Message">
+        <label for="messagetext">Your message:</label>
+        <input type="text" name="messagetext" placeholder="I like turtles!">
+        <button type="submit">Submit</button>
+    </form>
 </body>
 </html>
