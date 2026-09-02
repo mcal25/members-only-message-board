@@ -7,7 +7,7 @@ const messagesRouter = Router();
 
 messagesRouter.get("/", async (req, res) => {
   const allMessages = await getAllMessages();
-  res.render("messages", { allMessages: allMessages });
+  res.render("messages", { user: res.locals.user, allMessages: allMessages });
 });
 
 messagesRouter.get("/new-message", (req, res) => {

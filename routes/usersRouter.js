@@ -30,7 +30,7 @@ usersRouter.post("/sign-up", async (req, res, next) => {
     try {
         const hashedPassword = await bcrypt.hash(req.body.password, 12);
         console.log('Req body:', req.body);
-        await pool.query("INSERT INTO users (firstname, lastname, email, password) VALUES ($1, $2, $3, $4)", [req.body.firstname, req.body.lastname, req.body.email, hashedPassword]);
+        await pool.query("INSERT INTO users (firstname, lastname, username, password) VALUES ($1, $2, $3, $4)", [req.body.firstname, req.body.lastname, req.body.email, hashedPassword]);
         res.redirect("/");
     } catch (error) {
         console.error(error);
@@ -38,11 +38,13 @@ usersRouter.post("/sign-up", async (req, res, next) => {
     }
 });
 
-usersRouter.post("/login", passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/",
-    failureMessage: true,
-}));
+usersRouter.post("/login",
+    passport.authenticate("local", {
+        successRedirect: "/",
+        // failureRedirect: "/",
+        // failureMessage: true,
+    })
+);
 
 passport.use(
     new LocalStrategy(async (username, password, done) => {
